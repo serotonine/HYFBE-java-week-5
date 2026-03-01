@@ -7,7 +7,7 @@ import java.time.LocalTime;
  * Exercise 1: Basic Date and Time Operations
  * 
  * TODO: Complete the following tasks
- * 
+ *
  * 1. Create a LocalDate for your birthday
  * 2. Print your birthday in the format: "I was born on [day of week], [month] [day], [year]"
  * 3. Find out if your birth year was a leap year
@@ -20,10 +20,10 @@ public class Exercise1 {
     public static void main(String[] args) {
         // TODO: Task 1 - Create your birthday
         LocalDate birthday = null; // Replace with your birthday
-        
+
         // TODO: Task 2 - Print formatted birthday message
         
-        
+
         // TODO: Task 3 - Check if leap year
         
         
@@ -31,11 +31,11 @@ public class Exercise1 {
         LocalTime wakeUpTime = null; // Replace with your usual wake-up time
         
         // TODO: Task 5 - Combine birthday and wake-up time
-        
+
         
         // TODO: Task 6 - Calculate days old (Hint: use ChronoUnit.DAYS.between())
-        
-        
+
+
         // TODO: Task 7 - Print day of year you were born
         
     }

@@ -1,7 +1,6 @@
 package dates.examples;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 /**
  * Example 2: Date Arithmetic - Adding and Subtracting
@@ -9,7 +8,6 @@ import java.time.temporal.ChronoUnit;
  * This example demonstrates:
  * - Adding days, weeks, months, years
  * - Subtracting time units
- * - Using plus() and minus() with ChronoUnit
  *
  * Temporal is an interface for objects that represent date or time.
  * It allows adding or subtracting time units like days or months.
@@ -30,10 +28,6 @@ public class Example2 {
         System.out.println("2 weeks ago: " + today.minusWeeks(2));
         System.out.println("6 months ago: " + today.minusMonths(6));
         System.out.println("5 years ago: " + today.minusYears(5));
-
-        System.out.println("\n--- Using ChronoUnit ---");
-        System.out.println("100 days later: " + today.plus(100, ChronoUnit.DAYS));
-        System.out.println("50 days ago: " + today.minus(50, ChronoUnit.DAYS));
 
         System.out.println("\n--- Combining Operations ---");
         LocalDate futureDate = today.plusMonths(6).plusDays(15);
