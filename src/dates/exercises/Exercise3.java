@@ -7,8 +7,7 @@ import java.time.LocalTime;
  * Exercise 3: Period and Duration Calculations
  * 
  * Scenario: You need to calculate time differences for various situations
- * 
- * TODO: Complete the following tasks
+ *  Complete the following tasks
  * 
  * 1. Calculate your exact age in years, months, and days using Period
  * 2. Create a method that calculates the number of days between two dates

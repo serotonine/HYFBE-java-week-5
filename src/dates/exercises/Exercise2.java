@@ -4,8 +4,7 @@ package dates.exercises;
  * Exercise 2: Date Arithmetic
  * 
  * Scenario: You are planning a project timeline
- * 
- * TODO: Complete the following tasks
+ *  Complete the following tasks
  * 
  * 1. Create a LocalDate for today (project start date)
  * 2. Calculate and print the date 7 days from today (Sprint 1 deadline)

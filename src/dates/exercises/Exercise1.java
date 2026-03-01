@@ -4,8 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Exercise 1: Basic Date and Time Operations
- * 
- * TODO: Complete the following tasks
+ *  Complete the following tasks
  *
  * 1. Create a LocalDate for your birthday
  * 2. Print your birthday in the format: "I was born on [day of week], [month] [day], [year]"
