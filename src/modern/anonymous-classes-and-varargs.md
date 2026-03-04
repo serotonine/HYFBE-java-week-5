@@ -1,5 +1,5 @@
 
-Varargs • Anonymous Classes • Builder Pattern
+# Varargs • Anonymous Classes • Builder Pattern
 
 This module covers three powerful Java features that improve flexibility, readability, and API design.
 
@@ -11,9 +11,11 @@ More flexible behavior
 
 More readable object creation
 
-1️⃣ Varargs — Flexible Method Parameters
+## Varargs — Flexible Method Parameters
 What Problem Does It Solve?
-
+Question:
+Try to create a method that adds 3 given parameters, and then overload it for 4 parameters, and then 5.
+Problem is:
 Sometimes we don’t know how many arguments a method will receive.
 
 Instead of writing:
@@ -22,7 +24,6 @@ Instead of writing:
 sum(1, 2);
 sum(1, 2, 3);
 sum(1, 2, 3, 4);
-
 ```
 
 We use varargs.
@@ -30,11 +31,11 @@ We use varargs.
 
 ```java
 public static int sum(int... numbers) {
-int total = 0;
-for (int n : numbers) {
-    total += n;
-}
-return total;
+    int total = 0;
+    for (int n : numbers) {
+        total += n;
+    }
+    return total;
 }
 //Usage
 sum(1, 2);
@@ -51,7 +52,7 @@ It must be the last parameter
 It behaves like an array
 
 ```java
-public void example(String name, int... scores) // ✅ correct
+public void example(String name, int... scores) // This is correct
 ```
 Mini Exercise
 
@@ -61,10 +62,10 @@ public static String join(String... words)
 
 It should return all words combined into one sentence.
 
-2️⃣ Anonymous Classes — One-Time Behavior
+## Anonymous Classes  One-Time Behavior
 What Problem Does It Solve?
 
-Sometimes we need a class only once.
+Sometimes we need an object that conforms to an interface and we need it only once.
 
 Instead of creating a full class file, we can create it inline.
 
@@ -92,6 +93,10 @@ p.print("Hello");
 It is also possible with generics too
 
 ```java
+public interface Comparator<T> {
+    ...
+}
+
 Comparator<String> comparator = new Comparator<>() {
     @Override
     public int compare(String a, String b) {
