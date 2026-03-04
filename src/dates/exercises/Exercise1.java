@@ -1,6 +1,7 @@
 package dates.exercises;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Exercise 1: Basic Date and Time Operations
@@ -16,16 +17,22 @@ import java.time.LocalDate;
  */
 public class Exercise1 {
     public static void main(String[] args) {
-        // TODO: Task 1 - Create your birthday
-        LocalDate birthday = null; // Replace with your birthday
+        // Task 1 - Create your birthday
+        LocalDate birthday = LocalDate.of(1970,10,16);
 
-        // TODO: Task 2 - Print formatted birthday message
+        // Task 2 - Print formatted birthday message
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("EEEE dd MMMM Y");
+        System.out.println("I'm born a " + birthday.format(f));
         
 
-        // TODO: Task 3 - Check if leap year
+        // Task 3 - Check if leap year
+        String response = birthday.isLeapYear() ? "My birthday is a leap year.": "My birthday is NOT a leap year.";
+        System.out.println(response);
 
 
-        // TODO: Task 4 - Print day of year you were born
-        
+        // Task 4 - Print day of year you were born
+        System.out.println("I'm born the " + birthday.getDayOfYear() + "th day of the year " + birthday.getYear());
+        System.out.println("It was a "+ birthday.getDayOfWeek() + ".");
+
     }
 }

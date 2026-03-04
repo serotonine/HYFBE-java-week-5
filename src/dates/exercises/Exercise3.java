@@ -1,7 +1,10 @@
 package dates.exercises;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
+import java.time.temporal.TemporalAdjusters;
 
 /**
  * Exercise 3: Period and Duration Calculations
@@ -19,36 +22,58 @@ import java.time.LocalTime;
  */
 public class Exercise3 {
     public static void main(String[] args) {
-        // TODO: Task 1 - Calculate your age
-        LocalDate birthday = LocalDate.of(2000, 1, 1); // Replace with your birthday
+        // Task 1 - Calculate your age
+        LocalDate birthday = LocalDate.of(1970, 02, 16);
         LocalDate today = LocalDate.now();
-        
-        
-        // TODO: Task 2 - Create a method to calculate days between dates
+        int myAge = Period.between(birthday,today).getYears();
+        System.out.println("My age: " + myAge);
+
+
+        // Task 2 - Create a method to calculate days between dates
         // Call it with two different dates and print the result
-        
-        
-        // TODO: Task 3 - Calculate working hours
+        LocalDate nextBirthday = LocalDate.of(2027, 02, 16);
+
+        System.out.println("Number of days to wait before my birthday: " + calculateDaysBetween( today,nextBirthday));
+
+        // Task 3 - Calculate working hours
         LocalTime workStart = LocalTime.of(9, 0);
-        LocalTime workEnd = LocalTime.of(17, 30);
+        LocalTime workEnd = LocalTime.of(17, 0);
+        Duration workDay = Duration.between(workStart,workEnd);
+        System.out.println("workDay " + workDay.toHours());
+
+        // Task 4 - Calculate actual working time (subtract 30 min lunch)
+        long init  = workDay.minusMinutes(30).getSeconds();
+        long seconds = init % 60;
+        long temp = (init - seconds) / 60;
+        long minutes = temp % 60;
+        long hours = (temp - minutes) / 60;
+        if(seconds > 0){
+            System.out.println("Actual working time: " + hours + ":" + minutes + ":" + seconds);
+        }
+        else{
+            System.out.println("Actual working time: " + hours + ":" + minutes);
+        }
+
+        // Task 5 - Days until New Year 2027
+        LocalDate newY = today.with(TemporalAdjusters.lastDayOfYear()).plusDays(1);
+        long newYdays = newY.toEpochDay() - today.toEpochDay();
+        System.out.println("Days until New Year 2027: " + newYdays);
         
         
-        // TODO: Task 4 - Calculate actual working time (subtract 30 min lunch)
-        
-        
-        // TODO: Task 5 - Days until New Year 2027
-        
-        
-        // TODO: Task 6 - Add period to today
+        // Task 6 - Add period to today
+        Period toNY = Period.between(today, newY);
+        System.out.println("Add period to today: " +  today.plus(toNY));
         
         
         // TODO: BONUS - Calculate full weeks between birthday and today
+        long fullWeeks = Math.round( newYdays / 7);
+        System.out.println("Full weeks between birthday and today: " + fullWeeks );
         
     }
     
-    // TODO: Task 2 - Implement this method
+    // Task 2 - Implement this method
     public static long calculateDaysBetween(LocalDate start, LocalDate end) {
-        // Your code here
-        return 0;
+
+        return Math.abs(start.toEpochDay() - end.toEpochDay());
     }
 }

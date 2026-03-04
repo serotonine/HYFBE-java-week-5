@@ -1,5 +1,6 @@
 package generics.exercises;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,10 +39,14 @@ public class Exercise3 {
     
     public static void main(String[] args) {
         System.out.println("=== Task 1: Print Any List ===\n");
-        
-        // TODO: Call printList with different types
-        
-        
+        List<String> sList = Arrays.asList("Robert", "Stéphanie", "Norbert");
+        List<Integer> iList = Arrays.asList(555, 473,25);
+        List<LocalDate> dateList = Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(34), LocalDate.now().minusDays(56));
+        printList(sList);
+        printList(iList);
+        printList(dateList);
+
+
         System.out.println("\n=== Task 2: Sum Numbers ===\n");
         
         // TODO: Call sumList
@@ -73,7 +78,13 @@ public class Exercise3 {
         
     }
     
-    // TODO: Task 1 - Implement printList
+    // Task 1 - Implement printList
+    public  static void printList(List<?> list){
+        for(Object item:list){
+            System.out.println("printList: " + item);
+        }
+        System.out.println("=".repeat(25));
+    }
     
     
     // TODO: Task 2 - Implement sumList

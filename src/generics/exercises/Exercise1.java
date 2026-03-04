@@ -1,5 +1,10 @@
 package generics.exercises;
 
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Exercise 1: Basic Generic Classes
  * 
@@ -23,61 +28,80 @@ package generics.exercises;
  *    - Pair<String, Integer> for ("age", 25)
  *    - Swap it and print both pairs
  */
-public class Exercise1
-{
-    public static void main(String[] args)
-    {
+public class Exercise1 {
+    
+    public static void main(String[] args) {
+        System.out.println("=== Task 1 & 2: Container Class ===\n");
+        
+        // Create Container instances and use them
+        Container s = new Container<String>("I am a String");
+        Container i = new Container<Integer>(456);
+        Container l = new Container<LocalDate>(LocalDate.now());
+        Container a = new Container<List>(new ArrayList<>());
+        Container n = new Container<Object>(null);
 
-        Container<String> stringContainer = new Container<>("Hello");
-        Container<Integer> intContainer = new Container<>(100);
-        Container<Boolean> boolContainer = new Container<>(true);
+        s.printValue();
+        i.printValue();
+        l.printValue();
+        a.printValue();
+        System.out.println("If this value null? " + s.isEmpty());
+        System.out.println("If this value null? " + n.isEmpty());
 
-        System.out.println("String value: " + stringContainer.getValue());
-        System.out.println("Integer value: " + intContainer.getValue());
-        System.out.println("Boolean value: " + boolContainer.getValue());
+        System.out.println("\n=== Task 3 & 4: Pair Class ===\n");
 
-
-        Pair<String, Integer> agePair = new Pair<>("age", 25);
-
-        System.out.println("Original Pair: " +
-                agePair.getKey() + " = " + agePair.getValue());
-
-        Pair<Integer, String> swapped = agePair.swap();
-
-        System.out.println("Swapped Pair: " + swapped);
+        // Create Paire instances, try swap() method.
+        Paire b = new Paire("Roberta", 24);
+        System.out.println("Before swap");
+        System.out.println(b.toString());
+        Paire c = b.swap();
+        System.out.println("After swap");
+        System.out.println(c.toString());
     }
 }
 
-class Container<T> {
+// Task 1 - Create Container<T> class here
+class Container<T>{
 
-    private T value;
+    T value;
+    public Container(T value){
+        setValue(value);
 
-    public Container(T value) {
-        this.value = value;
-    }
-
-    public T getValue() {
-        return value;
     }
 
     public void setValue(T value) {
         this.value = value;
     }
-
-    public boolean isEmpty() {
-        return value == null;
+    public T getValue(){
+        return this.value;
+    }
+    public void printValue(){
+        System.out.println("Class of value: " + value.getClass());
+    }
+    //  method that returns true if value is null.
+    public boolean isEmpty(){
+        return this.value == null;
     }
 }
 
-class Pair<K, V> {
-    private K key;
-    private V value;
-
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
+// Task 3 - Create Pair<K, V> class here
+class Paire<K,V>{
+    K key;
+    V value;
+    public Paire(K key, V value){
+        setKey(key);
+        setValue(value);
+    }
+    // SWAP METHOD
+    public Paire swap(){
+       return new Paire(this.getValue(), this.getKey());
+    }
+    // TOSTRING METHOD
+    @Override
+    public String toString() {
+        return "Key: " + this.getKey() + " Value: " + this.getValue();
     }
 
+    // GETTERS
     public K getKey() {
         return key;
     }
@@ -86,12 +110,12 @@ class Pair<K, V> {
         return value;
     }
 
-    public Pair<V, K> swap() {
-        return new Pair<>(value, key);
+    // SETTERS
+    public void setKey(K key){
+        this.key = key;
+    }
+    public  void setValue(V value){
+        this.value = value;
     }
 
-    @Override
-    public String toString() {
-        return "K: " + this.key + ", V: " + this.value;
-    }
 }
