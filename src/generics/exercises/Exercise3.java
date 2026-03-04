@@ -46,22 +46,19 @@ public class Exercise3 {
         printList(iList);
         printList(dateList);
 
-
         System.out.println("\n=== Task 2: Sum Numbers ===\n");
         
-        // TODO: Call sumList
+        // Call sumList
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
         List<Double> doubles = Arrays.asList(1.5, 2.5, 3.5);
-        
-        
+
         System.out.println("\n=== Task 3: Add Integers ===\n");
         
-        // TODO: Call addThreeIntegers with different list types
+        // Call addThreeIntegers with different list types
         List<Integer> intList = new ArrayList<>();
         List<Number> numList = new ArrayList<>();
         List<Object> objList = new ArrayList<>();
-        
-        
+
         System.out.println("\n=== Task 4: Copy Lists (PECS) ===\n");
         
         // TODO: Demonstrate PECS with copy method
