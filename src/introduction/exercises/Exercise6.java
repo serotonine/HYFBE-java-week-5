@@ -37,7 +37,6 @@ public class Exercise6
         if(scanner.hasNextInt()){
             nbSentences = scanner.nextInt();
             scanner.nextLine();
-
         }
         try(FileWriter writer = new FileWriter(file.getPath(), true)){
            while(nbSentences > 0){

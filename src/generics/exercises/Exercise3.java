@@ -58,6 +58,13 @@ public class Exercise3 {
         List<Integer> intList = new ArrayList<>();
         List<Number> numList = new ArrayList<>();
         List<Object> objList = new ArrayList<>();
+        addThreeIntegers(intList);
+        addThreeIntegers(numList);
+        addThreeIntegers(objList);
+        printList(intList);
+        printList(numList);
+        printList(objList);
+
 
         System.out.println("\n=== Task 4: Copy Lists (PECS) ===\n");
         
@@ -87,7 +94,12 @@ public class Exercise3 {
     // TODO: Task 2 - Implement sumList
     
     
-    // TODO: Task 3 - Implement addThreeIntegers
+    // Task 3 - Implement addThreeIntegers
+    public static void addThreeIntegers(List<? super Integer> list){
+        List<Integer> intToAdd = Arrays.asList(10, 20, 30);
+        list.addAll(intToAdd);
+    }
+
     
     
     // TODO: Task 4 - Implement copy method
