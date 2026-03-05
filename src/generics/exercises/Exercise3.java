@@ -69,6 +69,13 @@ public class Exercise3 {
         System.out.println("\n=== Task 4: Copy Lists (PECS) ===\n");
         
         // TODO: Demonstrate PECS with copy method
+        /*
+        4. Write a method copy(List<? extends T> source, List<? super T> dest)
+ *    that copies all elements from source to destination
+ *    - Demonstrate PECS principle
+ *    - Try by copying List<Integer> to List<Number>
+ *    - Try by copying List<Double> to List<Object>
+         */
         
         
         System.out.println("\n=== Task 5: Max of Two Lists ===\n");
